@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const app = express();
 app.use(bodyParser.json());
@@ -8,7 +9,8 @@ let redC = 255;
 let blueC = 255;
 let greenC = 255;
 
-app.get("/", (req, res) => {
+app.options("*", cors());
+app.get("/", cors(), (req, res) => {
     console.log("request!!!!!");
     res.send("Hello");
 })
@@ -21,7 +23,7 @@ app.get("/", (req, res) => {
 
     res.send(JSON.stringify(colors))
 })
-.post("/setcolors", (req, res) => {
+.post("/setcolors", cors(), (req, res) => {
     redC = req.body.redColor;
     console.log(`Set Red to: ${redC}`);
     blueC = req.body.blueColor;
