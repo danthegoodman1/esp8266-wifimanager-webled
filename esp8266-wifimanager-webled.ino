@@ -207,9 +207,9 @@ void loop() {
     leds[i].r = atoi(redC);
     leds[i].g = atoi(greenC);
     leds[i].b = atoi(blueC);
-    FastLED.show(); 
     delay(30);
   };
+  FastLED.show(); 
   
   if ((WiFi.status() == WL_CONNECTED)) { //Check the current connection status
  
@@ -261,7 +261,7 @@ void loop() {
     http.end(); //Free the resources
   }
   Serial.println(apikey);
-  delay(4000);
+  delay(1000);
 
 ///////////////////////////////////////////////////////////////////////
 
